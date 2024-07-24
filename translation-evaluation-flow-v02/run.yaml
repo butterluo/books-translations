@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
+flow: .
+data: data.jsonl
+column_mapping:
+   original_english_context_file_path: ${data.original_english_context_file_path}
+   current_english_chart_file_path: ${data.current_english_chart_file_path}
+   translated_chinese_text_file_path: ${data.translated_chinese_text_file_path}

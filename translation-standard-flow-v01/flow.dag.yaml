@@ -1,0 +1,79 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  english_text:
+    type: string
+    is_chat_history: false
+    is_chat_input: true
+    default: hello world!
+  chat_history:
+    type: list
+    default: []
+    is_chat_history: true
+    is_chat_input: false
+  file_name:
+    type: string
+    default: test.md
+outputs:
+  chinese_translation:
+    type: string
+    reference: ${llm_node_Publishing_Expert.output}
+nodes:
+- name: llm_node_translate
+  type: llm
+  source:
+    type: code
+    path: llm_node_translate.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.8
+    max_tokens: 4096
+    chat_history: ${inputs.chat_history}
+    english_text: ${inputs.english_text}
+    response_format:
+      type: text
+  connection: eastus-aoai-connection
+  api: chat
+- name: llm_node_Proofreading_Expert
+  type: llm
+  source:
+    type: code
+    path: llm_node_Proofreading_Expert.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0
+    max_tokens: 4096
+    chat_history: ${inputs.chat_history}
+    English_text: ${inputs.english_text}
+    Chinese_translation: ${llm_node_translate.output}
+    response_format:
+      type: text
+  connection: eastus-aoai-connection
+  api: chat
+- name: llm_node_Publishing_Expert
+  type: llm
+  source:
+    type: code
+    path: llm_node_Publishing_Expert.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0
+    chat_history: ${inputs.chat_history}
+    English_text: ${inputs.english_text}
+    Chinese_translation: ${llm_node_Proofreading_Expert.output}
+    max_tokens: 4096
+    response_format:
+      type: text
+  connection: eastus-aoai-connection
+  api: chat
+- name: python_node_save_translation_result
+  type: python
+  source:
+    type: code
+    path: python_node_save_translation_result.py
+  inputs:
+    first_translated_text: ${llm_node_translate.output}
+    file_name: ${inputs.file_name}
+    second_translated_text: ${llm_node_Proofreading_Expert.output}
+    final_translated_text: ${llm_node_Publishing_Expert.output}

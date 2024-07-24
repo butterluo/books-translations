@@ -1,0 +1,90 @@
+{
+  "package": {},
+  "code": {
+    "llm_node_Proofreading_Expert.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "English_text": {
+          "type": [
+            "string"
+          ]
+        },
+        "Chinese_translation": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "llm_node_Proofreading_Expert.jinja2"
+    },
+    "llm_node_translate.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "english_text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "llm_node_translate.jinja2"
+    },
+    "llm_node_Publishing_Expert.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "English_text": {
+          "type": [
+            "string"
+          ]
+        },
+        "Chinese_translation": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "llm_node_Publishing_Expert.jinja2"
+    },
+    "python_node_save_translation_result.py": {
+      "type": "python",
+      "inputs": {
+        "file_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "first_translated_text": {
+          "type": [
+            "string"
+          ]
+        },
+        "second_translated_text": {
+          "type": [
+            "string"
+          ]
+        },
+        "final_translated_text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "python_node_save_translation_result.py",
+      "function": "my_python_tool"
+    }
+  }
+}

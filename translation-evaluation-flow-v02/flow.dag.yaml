@@ -1,0 +1,35 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  original_english_context_file_path:
+    type: string
+    default: /Users/huqianghui/Downloads/books-translations/books/TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1.md
+  current_english_chart_file_path:
+    type: string
+    default: /Users/huqianghui/Downloads/books-translations/book-chunks/TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1-00.md
+  translated_chinese_text_file_path:
+    type: string
+    default: /Users/huqianghui/Downloads/books-translations/translated-book-chunks/final-publishing-version-book-chunks/TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1-00.md
+outputs:
+  results:
+    type: string
+    reference: ${line_process.output}
+nodes:
+- name: line_process
+  type: python
+  source:
+    type: code
+    path: line_process.py
+  inputs:
+    current_english_chart_file_path: ${inputs.current_english_chart_file_path}
+    translated_chinese_text_file_path: ${inputs.translated_chinese_text_file_path}
+    original_english_context_file_path: ${inputs.original_english_context_file_path}
+- name: aggregate
+  type: python
+  source:
+    type: code
+    path: aggregate.py
+  inputs:
+    processed_results: ${line_process.output}
+  aggregation: true

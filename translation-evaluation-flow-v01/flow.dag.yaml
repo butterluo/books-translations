@@ -1,0 +1,35 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  original_english_context:
+    type: string
+    default: hello world!
+  current_english_chart:
+    type: string
+    default: hello world!
+  translated_chinese_text:
+    type: string
+    default: 你好，世界！
+outputs:
+  results:
+    type: string
+    reference: ${line_process.output}
+nodes:
+- name: line_process
+  type: python
+  source:
+    type: code
+    path: line_process.py
+  inputs:
+    original_english_context: ${inputs.original_english_context}
+    current_english_chart: ${inputs.current_english_chart}
+    translated_chinese_text: ${inputs.translated_chinese_text}
+- name: aggregate
+  type: python
+  source:
+    type: code
+    path: aggregate.py
+  inputs:
+    processed_results: ${line_process.output}
+  aggregation: true

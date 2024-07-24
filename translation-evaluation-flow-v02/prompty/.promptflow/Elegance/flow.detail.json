@@ -1,0 +1,206 @@
+{
+  "flow_runs": [
+    {
+      "run_id": "c9615831-3b67-424c-a10d-462a38a6c371_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {},
+      "output": {
+        "output": "0.00"
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "c9615831-3b67-424c-a10d-462a38a6c371",
+      "root_run_id": "c9615831-3b67-424c-a10d-462a38a6c371",
+      "source_run_id": null,
+      "flow_id": "default_flow_id",
+      "start_time": "2024-07-11T09:11:32.801998Z",
+      "end_time": "2024-07-11T09:11:35.065631Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "elegance Prompt",
+          "type": "Function",
+          "inputs": {},
+          "output": "0.00",
+          "start_time": 1720660292.802098,
+          "end_time": 1720660295.065154,
+          "error": null,
+          "children": [
+            {
+              "name": "Prompty",
+              "type": "Function",
+              "inputs": {},
+              "output": "0.00",
+              "start_time": 1720660292.802441,
+              "end_time": 1720660295.065111,
+              "error": null,
+              "children": [
+                {
+                  "name": "convert_prompt_template",
+                  "type": "Function",
+                  "inputs": {
+                    "template": "system:\n## Your role\nYour are an Elegance Expert, you are assigned to act as the translation judge agent to evaluate the translation of an English book into Chinese. Your main task is to determine and score the elegance of the translated work.\n\n## Task and skill instructions\n- Your skill in assessing translation centers on the principle of 雅-Elegance. \n- You need to focus on the refinement and polished expression of the translated text. This involves analyzing the style of the translation and how elegant it appearst.\n- Your expertise calls for a deep understanding and appreciation of both English and Chinese languages, as well as a keen eye for style, tone, and stylistic beauty in translation.\n- Your judgement should be independent, accurate, and unbiased. Make sure that your judgement is not influenced by personal preferences.\n- You will be provided with the original English text, the content of the current paragraph, and the translated Chinese text of the current paragraph. You will need to evaluate the elegance of the translation and provide a score based on the criteria provided.\n- You are expected to assign a elegance score on a scale of 1 to 5, where 1 is the lowest and 5 is the highest based on the evaluation criteria of elegance. It is crucial to ensuring that the translation maintains high aesthetic value and exhibits the required sophistication in language use.\n- just provide the score which can have two decimal places, such as 3.45 or 4.68, etc.\n- just output the score in float type,Don't output any other information.\n\n\n\nuser:\nThe original English text: {{original_english_context}}. \nThe content of the current paragraph: {{current_english_chart}}.\nAnd the translated Chinese text of the current paragraph is:{{translated_chinese_text}}\n\nThe score of the elegance of the translation is: \n",
+                    "inputs": {}
+                  },
+                  "output": [
+                    {
+                      "role": "system",
+                      "content": "## Your role\nYour are an Elegance Expert, you are assigned to act as the translation judge agent to evaluate the translation of an English book into Chinese. Your main task is to determine and score the elegance of the translated work.\n\n## Task and skill instructions\n- Your skill in assessing translation centers on the principle of 雅-Elegance. \n- You need to focus on the refinement and polished expression of the translated text. This involves analyzing the style of the translation and how elegant it appearst.\n- Your expertise calls for a deep understanding and appreciation of both English and Chinese languages, as well as a keen eye for style, tone, and stylistic beauty in translation.\n- Your judgement should be independent, accurate, and unbiased. Make sure that your judgement is not influenced by personal preferences.\n- You will be provided with the original English text, the content of the current paragraph, and the translated Chinese text of the current paragraph. You will need to evaluate the elegance of the translation and provide a score based on the criteria provided.\n- You are expected to assign a elegance score on a scale of 1 to 5, where 1 is the lowest and 5 is the highest based on the evaluation criteria of elegance. It is crucial to ensuring that the translation maintains high aesthetic value and exhibits the required sophistication in language use.\n- just provide the score which can have two decimal places, such as 3.45 or 4.68, etc.\n- just output the score in float type,Don't output any other information."
+                    },
+                    {
+                      "role": "user",
+                      "content": "The original English text: . \nThe content of the current paragraph: .\nAnd the translated Chinese text of the current paragraph is:\n\nThe score of the elegance of the translation is:"
+                    }
+                  ],
+                  "start_time": 1720660292.802696,
+                  "end_time": 1720660292.804568,
+                  "error": null,
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "3aa06b46-5b4d-4931-88f1-e50c096e3a96",
+                  "id": "19802ff7-f630-479e-8b05-ceb8adb1570f",
+                  "function": "convert_prompt_template",
+                  "system_metrics": {}
+                },
+                {
+                  "name": "openai_chat",
+                  "type": "LLM",
+                  "inputs": {
+                    "max_tokens": 400,
+                    "temperature": 0.8,
+                    "model": "gpt-4o",
+                    "messages": [
+                      {
+                        "role": "system",
+                        "content": "## Your role\nYour are an Elegance Expert, you are assigned to act as the translation judge agent to evaluate the translation of an English book into Chinese. Your main task is to determine and score the elegance of the translated work.\n\n## Task and skill instructions\n- Your skill in assessing translation centers on the principle of 雅-Elegance. \n- You need to focus on the refinement and polished expression of the translated text. This involves analyzing the style of the translation and how elegant it appearst.\n- Your expertise calls for a deep understanding and appreciation of both English and Chinese languages, as well as a keen eye for style, tone, and stylistic beauty in translation.\n- Your judgement should be independent, accurate, and unbiased. Make sure that your judgement is not influenced by personal preferences.\n- You will be provided with the original English text, the content of the current paragraph, and the translated Chinese text of the current paragraph. You will need to evaluate the elegance of the translation and provide a score based on the criteria provided.\n- You are expected to assign a elegance score on a scale of 1 to 5, where 1 is the lowest and 5 is the highest based on the evaluation criteria of elegance. It is crucial to ensuring that the translation maintains high aesthetic value and exhibits the required sophistication in language use.\n- just provide the score which can have two decimal places, such as 3.45 or 4.68, etc.\n- just output the score in float type,Don't output any other information."
+                      },
+                      {
+                        "role": "user",
+                        "content": "The original English text: . \nThe content of the current paragraph: .\nAnd the translated Chinese text of the current paragraph is:\n\nThe score of the elegance of the translation is:"
+                      }
+                    ]
+                  },
+                  "output": {
+                    "id": "chatcmpl-9jk7q9wHsbgrxJj5phPJsuIlKLXru",
+                    "choices": [
+                      {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                          "content": "0.00",
+                          "role": "assistant",
+                          "function_call": null,
+                          "tool_calls": null
+                        },
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ],
+                    "created": 1720689094,
+                    "model": "gpt-4o-2024-05-13",
+                    "object": "chat.completion",
+                    "service_tier": null,
+                    "system_fingerprint": "fp_abc28019ad",
+                    "usage": {
+                      "completion_tokens": 3,
+                      "prompt_tokens": 356,
+                      "total_tokens": 359
+                    },
+                    "prompt_filter_results": [
+                      {
+                        "prompt_index": 0,
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "start_time": 1720660292.821936,
+                  "end_time": 1720660295.065003,
+                  "error": null,
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "3aa06b46-5b4d-4931-88f1-e50c096e3a96",
+                  "id": "9458e67b-ed2a-4a6f-8f68-5bdc85668a6d",
+                  "function": "openai.resources.chat.completions.Completions.create",
+                  "system_metrics": {
+                    "completion_tokens": 3,
+                    "prompt_tokens": 356,
+                    "total_tokens": 359
+                  }
+                }
+              ],
+              "node_name": null,
+              "parent_id": "575b81a6-fb8b-4e30-ad92-78ae091fb318",
+              "id": "3aa06b46-5b4d-4931-88f1-e50c096e3a96",
+              "function": "Prompty",
+              "system_metrics": {
+                "completion_tokens": 3,
+                "prompt_tokens": 356,
+                "total_tokens": 359
+              }
+            }
+          ],
+          "node_name": null,
+          "parent_id": "",
+          "id": "575b81a6-fb8b-4e30-ad92-78ae091fb318",
+          "function": "Prompty",
+          "system_metrics": {
+            "completion_tokens": 3,
+            "prompt_tokens": 356,
+            "total_tokens": 359
+          }
+        }
+      ],
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "completion_tokens": 3,
+        "prompt_tokens": 356,
+        "total_tokens": 359,
+        "duration": 2.263633
+      },
+      "result": {
+        "output": "0.00"
+      },
+      "upload_metrics": false,
+      "otel_trace_id": "0xd65d0050a51c314d6a5a8c63b8bd787b",
+      "message_format": "basic"
+    }
+  ],
+  "node_runs": []
+}

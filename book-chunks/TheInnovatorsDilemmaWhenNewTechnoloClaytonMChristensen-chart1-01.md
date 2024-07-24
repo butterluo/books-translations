@@ -1,0 +1,2 @@
+1 How Can Great Firms Fail? Insights from the Hard Disk Drive Industry 2 Value Networks and the Impetus to Innovate  
+3 Disruptive Technological Change in the Mechanical Excavator Industry 4 What Goes Up, Can't Go Down
