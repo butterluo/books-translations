@@ -1,0 +1,25 @@
+{
+  "package": {},
+  "code": {
+    "faithfulness.prompty": {
+      "type": "llm",
+      "inputs": {
+        "original_english_context": {
+          "type": [
+            "string"
+          ]
+        },
+        "current_english_chart": {
+          "type": [
+            "string"
+          ]
+        },
+        "translated_chinese_text": {
+          "type": [
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}
