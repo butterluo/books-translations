@@ -1,0 +1,12 @@
+$schema: 
+  https://azuremlschemas.azureedge.net/promptflow/latest/AzureOpenAIConnection.schema.json
+type: azure_open_ai
+name: eastus-aoai-connection
+module: promptflow.connections
+api_base: ${env:AZURE_OPENAI_ENDPOINT}
+api_key: ${env:AZURE_OPENAI_KEY}
+api_type: azure
+api_version: '2024-02-01'
+auth_mode: key
+
+# pf connection create --file ./eastus-aoai-connection.yaml --name eastus-aoai-connection

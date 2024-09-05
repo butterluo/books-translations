@@ -4,13 +4,13 @@ environment:
 inputs:
   original_english_context_file_path:
     type: string
-    default: /Users/huqianghui/Downloads/books-translations/books/TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1.md
+    default: TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1.md
   current_english_chart_file_path:
     type: string
-    default: /Users/huqianghui/Downloads/books-translations/book-chunks/TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1-00.md
+    default: TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1-00.md
   translated_chinese_text_file_path:
     type: string
-    default: /Users/huqianghui/Downloads/books-translations/translated-book-chunks/final-publishing-version-book-chunks/TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1-00.md
+    default: TheInnovatorsDilemmaWhenNewTechnoloClaytonMChristensen-chart1-00.md
 outputs:
   results:
     type: string
